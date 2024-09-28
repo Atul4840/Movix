@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movix-deployment
+  labels:
+    app: movix
+spec:
+  replicas: 3  # Number of replicas
+  selector:
+    matchLabels:
+      app: movix
+  template:
+    metadata:
+      labels:
+        app: movix
+    spec:
+      containers:
+      - name: movix
+        image: dockeratul101/movix:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 80  # Port where NGINX is exposed
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: movix-service
+spec:
+  type: NodePort  # Expose the service on a port on the node
+  selector:
+    app: movix
+  ports:
+    - port: 80  # Port the service will listen on
+      targetPort: 80  # Port on the container
+      nodePort: 30001  # Port on which the service will be accessible on the node
