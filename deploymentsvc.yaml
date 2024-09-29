@@ -19,6 +19,7 @@ spec:
         image: dockeratul101/movix:latest  # Replace with your Docker image
         ports:
         - containerPort: 80  # Port where NGINX is exposed
+        imagePullPolicy: Always
 
 ---
 apiVersion: v1
