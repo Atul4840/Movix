@@ -43,7 +43,7 @@ const HeroBanner = () => {
 
       <ContentWrapper>
         <div className="heroBannerContent">
-          <span className="title">Paisa</span>
+          <span className="title">Welcome Movix</span>
           <span className="subTitle">Millions of movies, TV shows and people to discover. Explore now.
           </span>
           <div className="searchInput">
